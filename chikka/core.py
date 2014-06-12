@@ -25,8 +25,6 @@ class Chikka(object):
         # e.g. 09991234567
         if len(mobile_number) == 11 and mobile_number.startswith('0'):
             mobile_number = '%s%s' % ('63', mobile_number[1:])
-        else:
-            raise InvalidMobileNumberException
 
         # e.g. 639991234567
         if not re.match('^63[0-9]{10}', mobile_number):
