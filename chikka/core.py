@@ -7,7 +7,7 @@ from .exceptions import (NullMobileNumberException, NullClientIDException,
                             NullSecretKeyException, NullShortCodeException,
                             InvalidMobileNumberException)
 
-API_URL = 'http://post.chikka.com/smsapi/request'
+API_URL = 'https://post.chikka.com/smsapi/request'
 
 class Chikka(object):
 
