@@ -1,3 +1,9 @@
+INSTALLATION
+============
+
+$ pip install python-chikka
+
+
 USAGE
 ======
 

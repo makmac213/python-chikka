@@ -10,7 +10,7 @@ __app_name__ = "python-chikka"
 __description__ = "Python API Wrapper for Chikka "
 __author__ = "Mark Allan B Meriales"
 __author_email__ = "mark.meriales@gmail.com"
-__app_url__ = "https://github.com/makmac213/"
-__download_url__ = "https://github.com/makmac213/python-chikka"
+__app_url__ = "https://github.com/makmac213/python-chikka/"
+__download_url__ = "https://github.com/makmac213/python-chikka/"
 
 from core import *
