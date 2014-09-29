@@ -3,8 +3,12 @@ import re
 import requests
 
 # add local_settings.py to .gitignore
-# variables in local_settings so it won't be uploaded
-from local_settings import REQUEST_COST, CLIENT_ID, SECRET_KEY, SHORTCODE
+# variables in local_settings optional, it won't be uploaded
+try:
+    from local_settings import REQUEST_COST, CLIENT_ID, SECRET_KEY, SHORTCODE
+except ImportError:
+    pass
+
 
 API_URL = 'https://post.chikka.com/smsapi/request'
 
