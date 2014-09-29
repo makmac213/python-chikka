@@ -5,7 +5,7 @@ import requests
 # add local_settings.py to .gitignore
 # variables in local_settings optional, it won't be uploaded
 try:
-    from local_settings import REQUEST_COST, CLIENT_ID, SECRET_KEY, SHORTCODE
+    from local_settings import CLIENT_ID, SECRET_KEY, SHORTCODE
 except ImportError:
     pass
 
@@ -44,7 +44,7 @@ class Chikka(object):
         # determines message_type, adds other required payload
         if kwargs.get('request_id') is not None:
             payload['request_id'] = kwargs.get('request_id')
-            payload['request_cost'] = REQUEST_COST
+            payload['request_cost'] = kwargs.get('request_cost')
             payload['message_type'] = 'REPLY'
         else:
             payload['message_type'] = 'SEND'
