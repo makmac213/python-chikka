@@ -5,7 +5,7 @@
 """
 
 
-__version__ = "0.1"
+__version__ = "0.2"
 __app_name__ = "python-chikka"
 __description__ = "Python API Wrapper for Chikka "
 __author__ = "Mark Allan B Meriales"
