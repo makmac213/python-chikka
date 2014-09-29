@@ -7,8 +7,9 @@ import requests
 try:
     from local_settings import CLIENT_ID, SECRET_KEY, SHORTCODE
 except ImportError:
-    pass
-
+    CLIENT_ID = None
+    SECRET_KEY = None
+    SHORTCODE = None
 
 API_URL = 'https://post.chikka.com/smsapi/request'
 
