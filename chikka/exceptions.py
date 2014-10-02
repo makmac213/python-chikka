@@ -13,3 +13,6 @@ class NullSecretKeyException(Exception):
 
 class NullShortCodeException(Exception):
     pass
+
+class NullRequestCostException(Exception):
+    pass

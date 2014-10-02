@@ -24,7 +24,6 @@ class Chikka(object):
 
         # check and validate mobile number
         if not mobile_number:
-            print "Error: A Mobile number is required.\n"
             raise NullMobileNumberException
         else:
             mobile_number = str(mobile_number)
@@ -35,7 +34,6 @@ class Chikka(object):
 
         # e.g. 639991234567
         if not re.match('^63[0-9]{10}', mobile_number):
-            print "Error: A valid Mobile number is required.\n"
             raise InvalidMobileNumberException
 
         payload['mobile_number'] = mobile_number
@@ -45,7 +43,15 @@ class Chikka(object):
         # determines message_type, adds other required payload
         if kwargs.get('request_id') is not None:
             payload['request_id'] = kwargs.get('request_id')
-            payload['request_cost'] = kwargs.get('request_cost')
+
+            # if message type is REPLY user is required to supply
+            # the request cost
+            request_cost = kwargs.get('request_cost')
+            if request_cost is not None:
+                payload['request_cost'] = request_cost
+            else:
+                raise NullRequestCostException
+
             payload['message_type'] = 'REPLY'
         else:
             payload['message_type'] = 'SEND'
@@ -54,11 +60,14 @@ class Chikka(object):
         # this can be useful to track messages sent
         # however if message_id does not exist this method
         # will generate a random message id
-        payload['message_id'] = kwargs.get('message_id', os.urandom(16).encode('hex'))
+        payload['message_id'] = kwargs.get('message_id', 
+                                    os.urandom(16).encode('hex'))
 
         payload['message'] = message
 
         self.response = requests.post(API_URL, data=payload)
+
+        return payload
 
 
     def _prepare_payload(self):
@@ -101,4 +110,7 @@ class NullSecretKeyException(Exception):
     pass
 
 class NullShortCodeException(Exception):
+    pass
+
+class NullRequestCostException(Exception):
     pass
