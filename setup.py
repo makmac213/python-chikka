@@ -12,7 +12,7 @@ setup(
     author=chikka.__author__,
     author_email=chikka.__author_email__,
     packages=['chikka'],
-    install_requires=['requests==2.0.1'],
+    install_requires=['requests==2.20.0'],
     url=chikka.__app_url__,
     classifiers=(
         'Development Status :: 4 - Beta',
